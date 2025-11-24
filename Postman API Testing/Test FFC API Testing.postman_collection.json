@@ -1,0 +1,312 @@
+{
+	"info": {
+		"_postman_id": "9e2cc201-adca-43a8-b54e-b6cfc940b9a8",
+		"name": "Test FFC API Testing",
+		"description": "Comprehensive API testing collection for Test FFC with authentication and customer management endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "50290162",
+		"_collection_link": "https://ashishh1998-6069436.postman.co/workspace/Ashishh-gaikwad's-Workspace~60980df5-6fdd-48cc-84e8-a8b5113aeaf1/collection/50290162-9e2cc201-adca-43a8-b54e-b6cfc940b9a8?action=share&source=collection_link&creator=50290162"
+	},
+	"item": [
+		{
+			"name": "Get Data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{authToken}}"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/dashboard/customers",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"dashboard",
+						"customers"
+					]
+				},
+				"description": "Retrieve customer data with authentication"
+			},
+			"response": []
+		},
+		{
+			"name": "Login-valid",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Pre-request script",
+							"// Add any pre-request operations here if needed"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"{{username}}\",\r\n  \"password\": \"{{password}}\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/account/authenticate",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"account",
+						"authenticate"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"{{username}}\",\r\n  \"password\": \"{{password}}\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/account/authenticate",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"account",
+								"authenticate"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Cache-Control",
+							"value": "no-cache"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Expires",
+							"value": "-1"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-AspNet-Version",
+							"value": "4.0.30319"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 24 Nov 2025 10:41:12 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "6180"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"userId\": 1336,\n    \"userDetail\": {\n        \"Status\": 200,\n        \"Message\": \"Success\",\n        \"data\": {\n            \"UserId\": 1336,\n            \"Name\": \"Publicis Groupe\",\n            \"MobileNo\": \"9519519519\",\n            \"CountryCode\": \"+91\",\n            \"ContactNo\": \"-\",\n            \"Email\": \"rijovarghese@nimapinfotech.com\",\n            \"Gender\": \"-\",\n            \"Dob\": \"01/01/1900\",\n            \"Country\": \"India\",\n            \"State\": \"NA\",\n            \"City\": \"NA\",\n            \"StreetAddress\": \"NA\",\n            \"ZipCode\": 0,\n            \"IsActive\": true,\n            \"CreatedDate\": \"2024-09-23T05:21:43.73\",\n            \"ModifiedDate\": \"2025-11-21T10:48:16.817\",\n            \"UserImage\": \"https://testffc.nimapinfotech.comImages/UserProfileImage/Images/UserProfileImage/1149/bcc31bff-da56-4725-9cb5-7636a53f2d41_Krishna.jpg\",\n            \"CityId\": 0,\n            \"StateId\": 0,\n            \"CountryId\": 0,\n            \"AccessWebLogin\": true\n        }\n    },\n    \"companyId\": 1149,\n    \"modules\": [\n        {\n            \"Id\": 1,\n            \"Name\": \"Group Module\"\n        },\n        {\n            \"Id\": 4,\n            \"Name\": \"Task Module\"\n        },\n        {\n            \"Id\": 8,\n            \"Name\": \"CRM\"\n        },\n        {\n            \"Id\": 11,\n            \"Name\": \"GeoCalender\"\n        },\n        {\n            \"Id\": 12,\n            \"Name\": \"Public Group\"\n        },\n        {\n            \"Id\": 15,\n            \"Name\": \"DynamicForms\"\n        },\n        {\n            \"Id\": 17,\n            \"Name\": \"Expense Module\"\n        }\n    ],\n    \"roles\": {\n        \"CompanyOwner\": true,\n        \"GroupOwner\": true,\n        \"GroupMember\": true,\n        \"ShopDummy\": true,\n        \"IsStarted\": true,\n        \"FreezeDashboard\": false,\n        \"IsTaskAdmin\": true,\n        \"GCAdmin\": true,\n        \"CRMAdmin\": true,\n        \"ExpenseAdmin\": false,\n        \"Reseller\": false\n    },\n    \"token\": \"\",\n    \"referralToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiI1MzMiLCJDb21wYW55SWQiOiI1MTUiLCJJc1JlZmVycmFsVXNlciI6IkZhbHNlIiwibmJmIjoxNzYzOTgwODcyLCJleHAiOjE3NjY1NzI4NzIsImlhdCI6MTc2Mzk4MDg3Mn0.vsYN_AFrsnUZalC7D4gHf8XIIXHv3n_TkslHGxEgmVQ\",\n    \"timeZone\": \"India Standard Time\",\n    \"CompanyDetail\": {\n        \"GroupId\": 431,\n        \"CompanyId\": 1149,\n        \"GroupName\": \"Default\",\n        \"CompanyName\": \"Publicis Groupe\",\n        \"Timezone\": \"India Standard Time\",\n        \"CountryName\": \"\",\n        \"CurrencyName\": \"\",\n        \"CurrencySymbol\": \"रु\",\n        \"CurrencyId\": 1,\n        \"CompanyLogo\": \"\",\n        \"CompanyLogoModifiedDate\": \"\",\n        \"TrialStartDate\": \"09-23-2024 10:51:45 AM\",\n        \"TrialEndDate\": \"06-20-2027 10:51:45 AM\",\n        \"SubscriptionStatus\": \"Live\",\n        \"DaysRemainig\": 572,\n        \"FinancialDate\": \"04/01/2025 12:00:00 AM\"\n    },\n    \"Permissions\": [\n        {\n            \"Id\": 1,\n            \"SystemName\": \"CustomersView\"\n        },\n        {\n            \"Id\": 2,\n            \"SystemName\": \"CustomersAdd\"\n        },\n        {\n            \"Id\": 3,\n            \"SystemName\": \"CustomersEdit\"\n        },\n        {\n            \"Id\": 4,\n            \"SystemName\": \"CustomersDelete\"\n        },\n        {\n            \"Id\": 5,\n            \"SystemName\": \"CustomersBulkImport\"\n        },\n        {\n            \"Id\": 6,\n            \"SystemName\": \"CustomersBulkExport\"\n        },\n        {\n            \"Id\": 7,\n            \"SystemName\": \"DealsView\"\n        },\n        {\n            \"Id\": 8,\n            \"SystemName\": \"DealsAdd\"\n        },\n        {\n            \"Id\": 9,\n            \"SystemName\": \"DealsEdit\"\n        },\n        {\n            \"Id\": 10,\n            \"SystemName\": \"DealsDelete\"\n        },\n        {\n            \"Id\": 11,\n            \"SystemName\": \"TaskView\"\n        },\n        {\n            \"Id\": 12,\n            \"SystemName\": \"TaskAdd\"\n        },\n        {\n            \"Id\": 13,\n            \"SystemName\": \"TaskEdit\"\n        },\n        {\n            \"Id\": 14,\n            \"SystemName\": \"TaskDelete\"\n        },\n        {\n            \"Id\": 15,\n            \"SystemName\": \"PunchIn_PunchOut\"\n        },\n        {\n            \"Id\": 16,\n            \"SystemName\": \"ExpenseView\"\n        },\n        {\n            \"Id\": 17,\n            \"SystemName\": \"ExpenseAdd\"\n        },\n        {\n            \"Id\": 18,\n            \"SystemName\": \"ExpenseEdit\"\n        },\n        {\n            \"Id\": 19,\n            \"SystemName\": \"ExepenseDelete\"\n        },\n        {\n            \"Id\": 20,\n            \"SystemName\": \"OrdersView\"\n        },\n        {\n            \"Id\": 21,\n            \"SystemName\": \"OrdersAdd\"\n        },\n        {\n            \"Id\": 22,\n            \"SystemName\": \"OrdersEdit\"\n        },\n        {\n            \"Id\": 23,\n            \"SystemName\": \"OrdersDelete\"\n        },\n        {\n            \"Id\": 24,\n            \"SystemName\": \"CustomerReportView\"\n        },\n        {\n            \"Id\": 25,\n            \"SystemName\": \"CustomerReportExport\"\n        },\n        {\n            \"Id\": 26,\n            \"SystemName\": \"ExpenseReportView\"\n        },\n        {\n            \"Id\": 27,\n            \"SystemName\": \"ExpenseReportExport\"\n        },\n        {\n            \"Id\": 28,\n            \"SystemName\": \"AttendanceReportExport\"\n        },\n        {\n            \"Id\": 29,\n            \"SystemName\": \"SalesReportView\"\n        },\n        {\n            \"Id\": 30,\n            \"SystemName\": \"SalesReportExport\"\n        },\n        {\n            \"Id\": 31,\n            \"SystemName\": \"DealsReportView\"\n        },\n        {\n            \"Id\": 32,\n            \"SystemName\": \"DealsReportExport\"\n        },\n        {\n            \"Id\": 33,\n            \"SystemName\": \"Billing\"\n        },\n        {\n            \"Id\": 34,\n            \"SystemName\": \"Integration\"\n        },\n        {\n            \"Id\": 35,\n            \"SystemName\": \"ManageUsers\"\n        },\n        {\n            \"Id\": 36,\n            \"SystemName\": \"ManageRoles\"\n        },\n        {\n            \"Id\": 37,\n            \"SystemName\": \"AllUsersData\"\n        },\n        {\n            \"Id\": 38,\n            \"SystemName\": \"CatalogueView\"\n        },\n        {\n            \"Id\": 39,\n            \"SystemName\": \"CatalogueAdd\"\n        },\n        {\n            \"Id\": 40,\n            \"SystemName\": \"CatalogueEdit\"\n        },\n        {\n            \"Id\": 41,\n            \"SystemName\": \"CatalogueDelete\"\n        },\n        {\n            \"Id\": 42,\n            \"SystemName\": \"CompanySettingsEdit\"\n        },\n        {\n            \"Id\": 43,\n            \"SystemName\": \"ExpenseSettings\"\n        },\n        {\n            \"Id\": 44,\n            \"SystemName\": \"CRMSettings\"\n        },\n        {\n            \"Id\": 45,\n            \"SystemName\": \"TerritoryMaster\"\n        },\n        {\n            \"Id\": 46,\n            \"SystemName\": \"AttendanceSettings\"\n        },\n        {\n            \"Id\": 47,\n            \"SystemName\": \"DynamicFormView\"\n        },\n        {\n            \"Id\": 48,\n            \"SystemName\": \"DynamicFormAdd\"\n        },\n        {\n            \"Id\": 49,\n            \"SystemName\": \"OrderManagement\"\n        },\n        {\n            \"Id\": 50,\n            \"SystemName\": \"CustomFieldManagement\"\n        },\n        {\n            \"Id\": 51,\n            \"SystemName\": \"VisitFormView\"\n        },\n        {\n            \"Id\": 52,\n            \"SystemName\": \"VisitFormAdd\"\n        },\n        {\n            \"Id\": 53,\n            \"SystemName\": \"VisitFormDelete\"\n        },\n        {\n            \"Id\": 54,\n            \"SystemName\": \"DynamicFormDelete\"\n        },\n        {\n            \"Id\": 55,\n            \"SystemName\": \"LeaveAdd\"\n        },\n        {\n            \"Id\": 56,\n            \"SystemName\": \"LeaveApprove\"\n        },\n        {\n            \"Id\": 57,\n            \"SystemName\": \"Communication\"\n        },\n        {\n            \"Id\": 58,\n            \"SystemName\": \"TaskSetting\"\n        },\n        {\n            \"Id\": 59,\n            \"SystemName\": \"Top5Absentees\"\n        },\n        {\n            \"Id\": 60,\n            \"SystemName\": \"Top5HalfDays\"\n        },\n        {\n            \"Id\": 61,\n            \"SystemName\": \"Top5ExtraDays\"\n        },\n        {\n            \"Id\": 62,\n            \"SystemName\": \"Top5PlannedLeaves\"\n        },\n        {\n            \"Id\": 63,\n            \"SystemName\": \"Top5ClaimUpdate\"\n        },\n        {\n            \"Id\": 64,\n            \"SystemName\": \"EmployeeLocation\"\n        },\n        {\n            \"Id\": 65,\n            \"SystemName\": \"Customer\"\n        },\n        {\n            \"Id\": 66,\n            \"SystemName\": \"Top5CustomerOrder\"\n        },\n        {\n            \"Id\": 67,\n            \"SystemName\": \"DealsAndPipeline\"\n        },\n        {\n            \"Id\": 68,\n            \"SystemName\": \"Expense\"\n        },\n        {\n            \"Id\": 69,\n            \"SystemName\": \"Top5Expense\"\n        },\n        {\n            \"Id\": 70,\n            \"SystemName\": \"SalesOverView\"\n        },\n        {\n            \"Id\": 71,\n            \"SystemName\": \"FeedLrm\"\n        },\n        {\n            \"Id\": 72,\n            \"SystemName\": \"Calls\"\n        },\n        {\n            \"Id\": 73,\n            \"SystemName\": \"Meetings\"\n        },\n        {\n            \"Id\": 74,\n            \"SystemName\": \"LeadSource\"\n        },\n        {\n            \"Id\": 75,\n            \"SystemName\": \"LeadStage\"\n        },\n        {\n            \"Id\": 76,\n            \"SystemName\": \"LeadStatus\"\n        },\n        {\n            \"Id\": 77,\n            \"SystemName\": \"TaskOverview\"\n        },\n        {\n            \"Id\": 78,\n            \"SystemName\": \"TeamWiseTask\"\n        },\n        {\n            \"Id\": 79,\n            \"SystemName\": \"ListView\"\n        },\n        {\n            \"Id\": 80,\n            \"SystemName\": \"LostReason\"\n        },\n        {\n            \"Id\": 82,\n            \"SystemName\": \"DealsandPipelineSettings\"\n        },\n        {\n            \"Id\": 83,\n            \"SystemName\": \"OpportunityAgainstLeadSource\"\n        },\n        {\n            \"Id\": 84,\n            \"SystemName\": \"LeadsOnAccountStageAgainstLeadSource\"\n        },\n        {\n            \"Id\": 88,\n            \"SystemName\": \"AttendanceRegularization\"\n        },\n        {\n            \"Id\": 89,\n            \"SystemName\": \"LeaveExport\"\n        },\n        {\n            \"Id\": 90,\n            \"SystemName\": \"LeaveSetting\"\n        },\n        {\n            \"Id\": 91,\n            \"SystemName\": \"LeadsConversion\"\n        },\n        {\n            \"Id\": 92,\n            \"SystemName\": \"OrderStatusEdit\"\n        },\n        {\n            \"Id\": 95,\n            \"SystemName\": \"OrderSettings\"\n        },\n        {\n            \"Id\": 96,\n            \"SystemName\": \"OpportunityConversion\"\n        },\n        {\n            \"Id\": 97,\n            \"SystemName\": \"OpportunityConversion\"\n        },\n        {\n            \"Id\": 98,\n            \"SystemName\": \"AddBusiness\"\n        },\n        {\n            \"Id\": 107,\n            \"SystemName\": \"ManageOrganizationalUnits\"\n        },\n        {\n            \"Id\": 108,\n            \"SystemName\": \"CustomersBulkAssign\"\n        },\n        {\n            \"Id\": 109,\n            \"SystemName\": \"DynamicFormExport\"\n        },\n        {\n            \"Id\": 110,\n            \"SystemName\": \"DynamicFormView\"\n        },\n        {\n            \"Id\": 111,\n            \"SystemName\": \"FillForm\"\n        },\n        {\n            \"Id\": 85,\n            \"SystemName\": \"TagsByOpportunity\"\n        },\n        {\n            \"Id\": 86,\n            \"SystemName\": \"TagsByWonOpportunity\"\n        },\n        {\n            \"Id\": 87,\n            \"SystemName\": \"TagsByLostOpportunity\"\n        },\n        {\n            \"Id\": 94,\n            \"SystemName\": \"ProductOrderStatus\"\n        },\n        {\n            \"Id\": 99,\n            \"SystemName\": \"ViewBusiness\"\n        },\n        {\n            \"Id\": 100,\n            \"SystemName\": \"EditBusiness\"\n        },\n        {\n            \"Id\": 101,\n            \"SystemName\": \"DeleteBusiness\"\n        },\n        {\n            \"Id\": 102,\n            \"SystemName\": \"ReferralAdd\"\n        },\n        {\n            \"Id\": 103,\n            \"SystemName\": \"ReferralView\"\n        },\n        {\n            \"Id\": 104,\n            \"SystemName\": \"ReferralApprove\"\n        },\n        {\n            \"Id\": 105,\n            \"SystemName\": \"ReferralEdit\"\n        },\n        {\n            \"Id\": 106,\n            \"SystemName\": \"ReferralDelete\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Login-invalid",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"{{username}}\",\r\n  \"password\": \"{{password}}\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/account/authenticate",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"account",
+								"authenticate"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Cache-Control",
+							"value": "no-cache"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Expires",
+							"value": "-1"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-AspNet-Version",
+							"value": "4.0.30319"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 24 Nov 2025 10:41:12 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "6180"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"userId\": 1336,\n    \"userDetail\": {\n        \"Status\": 200,\n        \"Message\": \"Success\",\n        \"data\": {\n            \"UserId\": 1336,\n            \"Name\": \"Publicis Groupe\",\n            \"MobileNo\": \"9519519519\",\n            \"CountryCode\": \"+91\",\n            \"ContactNo\": \"-\",\n            \"Email\": \"rijovarghese@nimapinfotech.com\",\n            \"Gender\": \"-\",\n            \"Dob\": \"01/01/1900\",\n            \"Country\": \"India\",\n            \"State\": \"NA\",\n            \"City\": \"NA\",\n            \"StreetAddress\": \"NA\",\n            \"ZipCode\": 0,\n            \"IsActive\": true,\n            \"CreatedDate\": \"2024-09-23T05:21:43.73\",\n            \"ModifiedDate\": \"2025-11-21T10:48:16.817\",\n            \"UserImage\": \"https://testffc.nimapinfotech.comImages/UserProfileImage/Images/UserProfileImage/1149/bcc31bff-da56-4725-9cb5-7636a53f2d41_Krishna.jpg\",\n            \"CityId\": 0,\n            \"StateId\": 0,\n            \"CountryId\": 0,\n            \"AccessWebLogin\": true\n        }\n    },\n    \"companyId\": 1149,\n    \"modules\": [\n        {\n            \"Id\": 1,\n            \"Name\": \"Group Module\"\n        },\n        {\n            \"Id\": 4,\n            \"Name\": \"Task Module\"\n        },\n        {\n            \"Id\": 8,\n            \"Name\": \"CRM\"\n        },\n        {\n            \"Id\": 11,\n            \"Name\": \"GeoCalender\"\n        },\n        {\n            \"Id\": 12,\n            \"Name\": \"Public Group\"\n        },\n        {\n            \"Id\": 15,\n            \"Name\": \"DynamicForms\"\n        },\n        {\n            \"Id\": 17,\n            \"Name\": \"Expense Module\"\n        }\n    ],\n    \"roles\": {\n        \"CompanyOwner\": true,\n        \"GroupOwner\": true,\n        \"GroupMember\": true,\n        \"ShopDummy\": true,\n        \"IsStarted\": true,\n        \"FreezeDashboard\": false,\n        \"IsTaskAdmin\": true,\n        \"GCAdmin\": true,\n        \"CRMAdmin\": true,\n        \"ExpenseAdmin\": false,\n        \"Reseller\": false\n    },\n    \"token\": \"\",\n    \"referralToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiI1MzMiLCJDb21wYW55SWQiOiI1MTUiLCJJc1JlZmVycmFsVXNlciI6IkZhbHNlIiwibmJmIjoxNzYzOTgwODcyLCJleHAiOjE3NjY1NzI4NzIsImlhdCI6MTc2Mzk4MDg3Mn0.vsYN_AFrsnUZalC7D4gHf8XIIXHv3n_TkslHGxEgmVQ\",\n    \"timeZone\": \"India Standard Time\",\n    \"CompanyDetail\": {\n        \"GroupId\": 431,\n        \"CompanyId\": 1149,\n        \"GroupName\": \"Default\",\n        \"CompanyName\": \"Publicis Groupe\",\n        \"Timezone\": \"India Standard Time\",\n        \"CountryName\": \"\",\n        \"CurrencyName\": \"\",\n        \"CurrencySymbol\": \"रु\",\n        \"CurrencyId\": 1,\n        \"CompanyLogo\": \"\",\n        \"CompanyLogoModifiedDate\": \"\",\n        \"TrialStartDate\": \"09-23-2024 10:51:45 AM\",\n        \"TrialEndDate\": \"06-20-2027 10:51:45 AM\",\n        \"SubscriptionStatus\": \"Live\",\n        \"DaysRemainig\": 572,\n        \"FinancialDate\": \"04/01/2025 12:00:00 AM\"\n    },\n    \"Permissions\": [\n        {\n            \"Id\": 1,\n            \"SystemName\": \"CustomersView\"\n        },\n        {\n            \"Id\": 2,\n            \"SystemName\": \"CustomersAdd\"\n        },\n        {\n            \"Id\": 3,\n            \"SystemName\": \"CustomersEdit\"\n        },\n        {\n            \"Id\": 4,\n            \"SystemName\": \"CustomersDelete\"\n        },\n        {\n            \"Id\": 5,\n            \"SystemName\": \"CustomersBulkImport\"\n        },\n        {\n            \"Id\": 6,\n            \"SystemName\": \"CustomersBulkExport\"\n        },\n        {\n            \"Id\": 7,\n            \"SystemName\": \"DealsView\"\n        },\n        {\n            \"Id\": 8,\n            \"SystemName\": \"DealsAdd\"\n        },\n        {\n            \"Id\": 9,\n            \"SystemName\": \"DealsEdit\"\n        },\n        {\n            \"Id\": 10,\n            \"SystemName\": \"DealsDelete\"\n        },\n        {\n            \"Id\": 11,\n            \"SystemName\": \"TaskView\"\n        },\n        {\n            \"Id\": 12,\n            \"SystemName\": \"TaskAdd\"\n        },\n        {\n            \"Id\": 13,\n            \"SystemName\": \"TaskEdit\"\n        },\n        {\n            \"Id\": 14,\n            \"SystemName\": \"TaskDelete\"\n        },\n        {\n            \"Id\": 15,\n            \"SystemName\": \"PunchIn_PunchOut\"\n        },\n        {\n            \"Id\": 16,\n            \"SystemName\": \"ExpenseView\"\n        },\n        {\n            \"Id\": 17,\n            \"SystemName\": \"ExpenseAdd\"\n        },\n        {\n            \"Id\": 18,\n            \"SystemName\": \"ExpenseEdit\"\n        },\n        {\n            \"Id\": 19,\n            \"SystemName\": \"ExepenseDelete\"\n        },\n        {\n            \"Id\": 20,\n            \"SystemName\": \"OrdersView\"\n        },\n        {\n            \"Id\": 21,\n            \"SystemName\": \"OrdersAdd\"\n        },\n        {\n            \"Id\": 22,\n            \"SystemName\": \"OrdersEdit\"\n        },\n        {\n            \"Id\": 23,\n            \"SystemName\": \"OrdersDelete\"\n        },\n        {\n            \"Id\": 24,\n            \"SystemName\": \"CustomerReportView\"\n        },\n        {\n            \"Id\": 25,\n            \"SystemName\": \"CustomerReportExport\"\n        },\n        {\n            \"Id\": 26,\n            \"SystemName\": \"ExpenseReportView\"\n        },\n        {\n            \"Id\": 27,\n            \"SystemName\": \"ExpenseReportExport\"\n        },\n        {\n            \"Id\": 28,\n            \"SystemName\": \"AttendanceReportExport\"\n        },\n        {\n            \"Id\": 29,\n            \"SystemName\": \"SalesReportView\"\n        },\n        {\n            \"Id\": 30,\n            \"SystemName\": \"SalesReportExport\"\n        },\n        {\n            \"Id\": 31,\n            \"SystemName\": \"DealsReportView\"\n        },\n        {\n            \"Id\": 32,\n            \"SystemName\": \"DealsReportExport\"\n        },\n        {\n            \"Id\": 33,\n            \"SystemName\": \"Billing\"\n        },\n        {\n            \"Id\": 34,\n            \"SystemName\": \"Integration\"\n        },\n        {\n            \"Id\": 35,\n            \"SystemName\": \"ManageUsers\"\n        },\n        {\n            \"Id\": 36,\n            \"SystemName\": \"ManageRoles\"\n        },\n        {\n            \"Id\": 37,\n            \"SystemName\": \"AllUsersData\"\n        },\n        {\n            \"Id\": 38,\n            \"SystemName\": \"CatalogueView\"\n        },\n        {\n            \"Id\": 39,\n            \"SystemName\": \"CatalogueAdd\"\n        },\n        {\n            \"Id\": 40,\n            \"SystemName\": \"CatalogueEdit\"\n        },\n        {\n            \"Id\": 41,\n            \"SystemName\": \"CatalogueDelete\"\n        },\n        {\n            \"Id\": 42,\n            \"SystemName\": \"CompanySettingsEdit\"\n        },\n        {\n            \"Id\": 43,\n            \"SystemName\": \"ExpenseSettings\"\n        },\n        {\n            \"Id\": 44,\n            \"SystemName\": \"CRMSettings\"\n        },\n        {\n            \"Id\": 45,\n            \"SystemName\": \"TerritoryMaster\"\n        },\n        {\n            \"Id\": 46,\n            \"SystemName\": \"AttendanceSettings\"\n        },\n        {\n            \"Id\": 47,\n            \"SystemName\": \"DynamicFormView\"\n        },\n        {\n            \"Id\": 48,\n            \"SystemName\": \"DynamicFormAdd\"\n        },\n        {\n            \"Id\": 49,\n            \"SystemName\": \"OrderManagement\"\n        },\n        {\n            \"Id\": 50,\n            \"SystemName\": \"CustomFieldManagement\"\n        },\n        {\n            \"Id\": 51,\n            \"SystemName\": \"VisitFormView\"\n        },\n        {\n            \"Id\": 52,\n            \"SystemName\": \"VisitFormAdd\"\n        },\n        {\n            \"Id\": 53,\n            \"SystemName\": \"VisitFormDelete\"\n        },\n        {\n            \"Id\": 54,\n            \"SystemName\": \"DynamicFormDelete\"\n        },\n        {\n            \"Id\": 55,\n            \"SystemName\": \"LeaveAdd\"\n        },\n        {\n            \"Id\": 56,\n            \"SystemName\": \"LeaveApprove\"\n        },\n        {\n            \"Id\": 57,\n            \"SystemName\": \"Communication\"\n        },\n        {\n            \"Id\": 58,\n            \"SystemName\": \"TaskSetting\"\n        },\n        {\n            \"Id\": 59,\n            \"SystemName\": \"Top5Absentees\"\n        },\n        {\n            \"Id\": 60,\n            \"SystemName\": \"Top5HalfDays\"\n        },\n        {\n            \"Id\": 61,\n            \"SystemName\": \"Top5ExtraDays\"\n        },\n        {\n            \"Id\": 62,\n            \"SystemName\": \"Top5PlannedLeaves\"\n        },\n        {\n            \"Id\": 63,\n            \"SystemName\": \"Top5ClaimUpdate\"\n        },\n        {\n            \"Id\": 64,\n            \"SystemName\": \"EmployeeLocation\"\n        },\n        {\n            \"Id\": 65,\n            \"SystemName\": \"Customer\"\n        },\n        {\n            \"Id\": 66,\n            \"SystemName\": \"Top5CustomerOrder\"\n        },\n        {\n            \"Id\": 67,\n            \"SystemName\": \"DealsAndPipeline\"\n        },\n        {\n            \"Id\": 68,\n            \"SystemName\": \"Expense\"\n        },\n        {\n            \"Id\": 69,\n            \"SystemName\": \"Top5Expense\"\n        },\n        {\n            \"Id\": 70,\n            \"SystemName\": \"SalesOverView\"\n        },\n        {\n            \"Id\": 71,\n            \"SystemName\": \"FeedLrm\"\n        },\n        {\n            \"Id\": 72,\n            \"SystemName\": \"Calls\"\n        },\n        {\n            \"Id\": 73,\n            \"SystemName\": \"Meetings\"\n        },\n        {\n            \"Id\": 74,\n            \"SystemName\": \"LeadSource\"\n        },\n        {\n            \"Id\": 75,\n            \"SystemName\": \"LeadStage\"\n        },\n        {\n            \"Id\": 76,\n            \"SystemName\": \"LeadStatus\"\n        },\n        {\n            \"Id\": 77,\n            \"SystemName\": \"TaskOverview\"\n        },\n        {\n            \"Id\": 78,\n            \"SystemName\": \"TeamWiseTask\"\n        },\n        {\n            \"Id\": 79,\n            \"SystemName\": \"ListView\"\n        },\n        {\n            \"Id\": 80,\n            \"SystemName\": \"LostReason\"\n        },\n        {\n            \"Id\": 82,\n            \"SystemName\": \"DealsandPipelineSettings\"\n        },\n        {\n            \"Id\": 83,\n            \"SystemName\": \"OpportunityAgainstLeadSource\"\n        },\n        {\n            \"Id\": 84,\n            \"SystemName\": \"LeadsOnAccountStageAgainstLeadSource\"\n        },\n        {\n            \"Id\": 88,\n            \"SystemName\": \"AttendanceRegularization\"\n        },\n        {\n            \"Id\": 89,\n            \"SystemName\": \"LeaveExport\"\n        },\n        {\n            \"Id\": 90,\n            \"SystemName\": \"LeaveSetting\"\n        },\n        {\n            \"Id\": 91,\n            \"SystemName\": \"LeadsConversion\"\n        },\n        {\n            \"Id\": 92,\n            \"SystemName\": \"OrderStatusEdit\"\n        },\n        {\n            \"Id\": 95,\n            \"SystemName\": \"OrderSettings\"\n        },\n        {\n            \"Id\": 96,\n            \"SystemName\": \"OpportunityConversion\"\n        },\n        {\n            \"Id\": 97,\n            \"SystemName\": \"OpportunityConversion\"\n        },\n        {\n            \"Id\": 98,\n            \"SystemName\": \"AddBusiness\"\n        },\n        {\n            \"Id\": 107,\n            \"SystemName\": \"ManageOrganizationalUnits\"\n        },\n        {\n            \"Id\": 108,\n            \"SystemName\": \"CustomersBulkAssign\"\n        },\n        {\n            \"Id\": 109,\n            \"SystemName\": \"DynamicFormExport\"\n        },\n        {\n            \"Id\": 110,\n            \"SystemName\": \"DynamicFormView\"\n        },\n        {\n            \"Id\": 111,\n            \"SystemName\": \"FillForm\"\n        },\n        {\n            \"Id\": 85,\n            \"SystemName\": \"TagsByOpportunity\"\n        },\n        {\n            \"Id\": 86,\n            \"SystemName\": \"TagsByWonOpportunity\"\n        },\n        {\n            \"Id\": 87,\n            \"SystemName\": \"TagsByLostOpportunity\"\n        },\n        {\n            \"Id\": 94,\n            \"SystemName\": \"ProductOrderStatus\"\n        },\n        {\n            \"Id\": 99,\n            \"SystemName\": \"ViewBusiness\"\n        },\n        {\n            \"Id\": 100,\n            \"SystemName\": \"EditBusiness\"\n        },\n        {\n            \"Id\": 101,\n            \"SystemName\": \"DeleteBusiness\"\n        },\n        {\n            \"Id\": 102,\n            \"SystemName\": \"ReferralAdd\"\n        },\n        {\n            \"Id\": 103,\n            \"SystemName\": \"ReferralView\"\n        },\n        {\n            \"Id\": 104,\n            \"SystemName\": \"ReferralApprove\"\n        },\n        {\n            \"Id\": 105,\n            \"SystemName\": \"ReferralEdit\"\n        },\n        {\n            \"Id\": 106,\n            \"SystemName\": \"ReferralDelete\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "AddLead - Add Customer",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					"// Build Basic Auth from username & password\r",
+					"const u = pm.environment.get(\"username\");\r",
+					"const p = pm.environment.get(\"password\");\r",
+					"\r",
+					"if (u && p) {\r",
+					"    const encoded = btoa(`${u}:${p}`);\r",
+					"    pm.environment.set(\"basicAuth\", encoded);\r",
+					"    console.log(\"Basic Auth created:\", encoded);\r",
+					"}\r",
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
